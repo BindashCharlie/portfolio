@@ -53,7 +53,7 @@ class Yatzy:
             counts[d] += 1
         pairs = [i for i in range(6, 0, -1) if counts[i] >= 2]
         if len(pairs) >= 2:
-            return (pairs[0] + pairs[1]) * 2
+            return pairs[0] * 2 + pairs[1] * 2 # Correct calculation
         return 0
 
     def three_alike(self):
