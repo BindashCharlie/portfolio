@@ -1,0 +1,22 @@
+The current implementation sums the pair values first, then multiplies by 2
+
+This works mathematically in some cases but is conceptually wrong
+
+Fails edge cases like [2,2,2,2,1] (should return 0 but current logic might try to make pairs)
+def two_pairs(self):
+counts = [0] * 7
+for d in self.dice:
+counts[d] += 1
+pairs = [i for i in range(6, 0, -1) if counts[i] >= 2]
+if len(pairs) >= 2:
+return (pairs[0] + pairs[1]) * 2
+return 0
+solution
+def two_pairs(self):
+counts = [0] * 7
+for d in self.dice:
+counts[d] += 1
+pairs = [i for i in range(6, 0, -1) if counts[i] >= 2]
+if len(pairs) >= 2:
+return pairs[0] * 2 + pairs[1] * 2 # Correct calculation
+return 0
